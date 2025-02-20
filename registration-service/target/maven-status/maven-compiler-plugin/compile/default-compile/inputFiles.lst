@@ -1,0 +1,11 @@
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\config\KafkaConfig.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\controller\KafkaController.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\KafkaApplication.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\model\User.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\repository\KafkaRepository.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\service\ConsumerService.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\service\impl\ConsumerServiceImpl.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\service\impl\ProducerServiceImpl.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\service\impl\RegistrationServiceImpl.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\service\ProducerService.java
+C:\Users\8J5712897\Documents\Projects\full-stack-coding-challenge\registration-service\src\main\java\com\ibm\fscc\kafka\service\RegistrationService.java

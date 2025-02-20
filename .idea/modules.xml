@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/discovery-service/src/main/java/com/ibm/fscc/discoveryservice/discovery-service.iml" filepath="$PROJECT_DIR$/discovery-service/src/main/java/com/ibm/fscc/discoveryservice/discovery-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/full-stack-coding-challenge.iml" filepath="$PROJECT_DIR$/.idea/full-stack-coding-challenge.iml" />
+    </modules>
+  </component>
+</project>

@@ -21,25 +21,27 @@ spring:
     database:
       replace: none
 
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  endpoint:
-#    shutdown:
-#      enabled: true
-#  info:
-#    env:
-#      enabled: true
-#endpoints:
-#  shutdown:
-#    enabled: true
-#eureka:
-#  instance:
-#    preferIpAddress: true
-#  client:
-#    fetchRegistry: true
-#    registerWithEureka: true
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+jwt.secret: "5b46163f408672a3aab2ed3730f63cb862dbbfc6270b37a04c54ca72c18191521e843075971e966cf35def38aa1fccce04fd67286622c150adad1b602f0ab14369bd703fba2847349833d318410a3c13a65ed283b932dfa57e25ac0fd1386d1c55044f97b13ef8331126237bf0f94ed2bbb4bcdec7bb1c5d7562b74699bbbde65b20d883a96d6b5a03a9590e638027feae0cb33f2e485dbc38ce1c42da154edb554fe25322bda8a0d0b53f1e0fef7a975de806fec25d280e07eff3c969566a7287d1aead041501bd1598bc65979da9976c0dbce68285e52a1d736b5c83ae6752373480d2a0a18619a100c29348d5b715ba4b9e7a5e86ddce9eada9d06ee7d120"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+endpoints:
+  shutdown:
+    enabled: true
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

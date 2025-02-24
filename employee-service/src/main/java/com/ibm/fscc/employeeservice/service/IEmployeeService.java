@@ -2,18 +2,16 @@ package com.ibm.fscc.employeeservice.service;
 
 import com.ibm.fscc.employeeservice.data.EmployeeEntity;
 import com.ibm.fscc.employeeservice.dto.EmployeeDto;
-
 import java.util.List;
 
-//The IEmployeeService interface methods
 public interface IEmployeeService {
-    void createEmployee(EmployeeDto employeeDto); //This method creates a new employee based on the provided `EmployeeDto` object.
+    void createEmployee(EmployeeDto employeeDto);
 
-    EmployeeDto fetchEmployee(String email); //This method fetches an employee's data based on their email address.
+    EmployeeDto fetchEmployee(String email);
 
-   boolean updateEmployee(Long id, EmployeeDto employeeDto); //This method updates an employee's data based on their ID and the provided `EmployeeDto` object.
+   boolean updateEmployee(Long id, EmployeeDto employeeDto);
 
-   boolean deleteEmployee(String email); //This method deletes an employee based on their email address.
+   boolean deleteEmployee(String email);
 
     EmployeeDto fetchAllEmployees();
 

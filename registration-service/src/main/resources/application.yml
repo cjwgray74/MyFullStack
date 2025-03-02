@@ -3,21 +3,22 @@ server:
 
 spring:
   application:
-    name: "registration"
+    name: kafka-ws
   main:
     banner-mode: OFF
   data:
     mongodb:
-      uri: mongodb+srv://cjwgray:MQ97732laniCNG1b@cluster0.yuvdrl9.mongodb.net
+      uri: mongodb://localhost:27017/registration_db
+      #uri: mongodb+srv://cjwgray:MQ97732laniCNG1b@cluster0.yuvdrl9.mongodb.net
       database: registration_db
   kafka:
     producer:
-      bootstrap-servers: http//localhost:9092
+      bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      bootstrap-servers: http//localhost:9092
-      group-id: "registration"
+      bootstrap-servers: localhost:9092
+      group-id: group-id
       enable-auto-commit: true
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -29,6 +30,7 @@ spring:
               packages: "*"
     listener:
       missing-topics-fatal: false
+
 
 management:
   endpoints:
@@ -54,6 +56,10 @@ eureka:
     registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+message:
+  topic:
+    name: registerTopic
 
 info:
   app:

@@ -1,31 +1,62 @@
 package com.ibm.fscc.kafka.controller;
 
-import com.ibm.fscc.kafka.request.UserRequest;
-import com.ibm.fscc.kafka.response.UserResponse;
-import com.ibm.fscc.kafka.service.UserService;
+
+import com.ibm.fscc.kafka.broker.UserMessage;
+import com.ibm.fscc.kafka.model.UserEntity;
+import com.ibm.fscc.kafka.command.service.EmployeeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/api/user")
 public class KafkaController {
 
     @Autowired
-    private UserService service;
+    private EmployeeService employeeService;
 
-    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest request) {
+    @Autowired
+    private Environment env;
 
-        var id = service.saveUser(request);
 
-        var response = new UserResponse((String) id);//String may not be needed
-
-        return ResponseEntity.ok().body(response);
+    @GetMapping(path = "/status/check")
+    public String status() {
+        return "Working on port " + env.getProperty("server.port") + "!";
     }
 
+    @PostMapping(path = "/register")
+    public ResponseEntity<String> register(@RequestBody UserMessage userMessage) {
+        try {
+            employeeService.addToTopic(userMessage);
+            return new ResponseEntity<>("User successfully registered.", HttpStatus.OK);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<>("User registration failed.", HttpStatus.BAD_REQUEST);
+        }
+    }
 
+    @GetMapping(path = "/email")
+    public UserEntity findByEmail(@RequestParam String email) {
+        return employeeService.getUser(email);
+    }
+
+    @GetMapping(path = "/all")
+    public List<UserEntity> getAllEmployees() {
+        return employeeService.getAll();
+    }
+
+    @GetMapping(path = "/status")
+    public List<UserEntity> findAllByStatus(@RequestParam String status) {
+        return employeeService.getAllByStatus(status);
+    }
 
 
 }

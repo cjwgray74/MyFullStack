@@ -1,5 +1,6 @@
 package com.ibm.fscc.employeeservice.controller;
 
+//The import statements import various classes and interfaces from different packages, allowing the application to use them.
 import com.ibm.fscc.employeeservice.constants.EmployeeConstants;
 import com.ibm.fscc.employeeservice.data.EmployeeEntity;
 import com.ibm.fscc.employeeservice.dto.EmployeeDto;
@@ -12,15 +13,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/* Here are the rest APIs that are related to the Employee service. */
+
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/api/employee")
 @AllArgsConstructor
 public class EmployeeController {
 
-	private final IEmployeeService iEmployeeService;
+	private IEmployeeService iEmployeeService;
+
+	@GetMapping(path="/demo")
+	public ResponseEntity<String> sayHello() {
+		return ResponseEntity.ok("Hello from employee demo-controller");
+	}
 
 	@PostMapping("/create")
-	public ResponseEntity<ResponseDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
+	public ResponseEntity<ResponseDto>createEmployee(@RequestBody EmployeeDto employeeDto){
 		iEmployeeService.createEmployee(employeeDto);
 
 		return ResponseEntity
@@ -29,71 +38,45 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/fetch")
-	public ResponseEntity<?> fetchEmployeeDetails(@RequestParam String email) {
+	public ResponseEntity<EmployeeDto> fetchEmployeeDetails(@RequestParam String email){
 		EmployeeDto employeeDto = iEmployeeService.fetchEmployee(email);
 
-		if (employeeDto == null) {
-			return ResponseEntity
-					.status(HttpStatus.NOT_FOUND)
-					.body(new ResponseDto(EmployeeConstants.STATUS_500, "Employee not found"));
-		}
-
-		return ResponseEntity.ok(employeeDto);
+		return ResponseEntity.status(HttpStatus.OK).body(employeeDto);
 	}
 
 	@GetMapping("/fetch/all")
-	public ResponseEntity<?> fetchAllEmployeeDetails() {
-		List<EmployeeEntity> employees = iEmployeeService.getAllEmployees();
-
-		if (employees.isEmpty()) {
-			return ResponseEntity
-					.status(HttpStatus.NO_CONTENT)
-					.build();
-		}
-
-		return ResponseEntity.ok(employees);
+	public List<EmployeeEntity> fetchAllEmployeeDetails() {
+		return iEmployeeService.getAllEmployees();
 	}
+
 
 	@PutMapping("/update")
-	public ResponseEntity<ResponseDto> updateEmployee(@RequestBody EmployeeDto employeeDto) {
-		Long employeeId = employeeDto.getId();
-		if (employeeId == null) {
-			return ResponseEntity
-					.status(HttpStatus.BAD_REQUEST)
-					.body(new ResponseDto(EmployeeConstants.STATUS_500, "Employee ID is required for update"));
-		}
-
-		boolean isUpdated = iEmployeeService.updateEmployee(employeeId, employeeDto);
-
-		if (isUpdated) {
+	public ResponseEntity<ResponseDto> updateEmployee(@RequestBody EmployeeDto employeeDto){
+		boolean isUpdated = iEmployeeService.updateEmployee(employeeDto.getId(), employeeDto);
+		if(isUpdated){
 			return ResponseEntity
 					.status(HttpStatus.OK)
-					.body(new ResponseDto(EmployeeConstants.STATUS_200, "Employee updated successfully"));
-		} else {
+					.body(new ResponseDto(EmployeeConstants.STATUS_201, EmployeeConstants.MESSAGE_201));
+		}else{
 			return ResponseEntity
-					.status(HttpStatus.NOT_FOUND)
-					.body(new ResponseDto(EmployeeConstants.STATUS_500, "Employee not found"));
+					.status(HttpStatus.BAD_REQUEST)
+					.body(new ResponseDto(EmployeeConstants.STATUS_500, EmployeeConstants.MESSAGE_500));
 		}
 	}
 
+
+
 	@DeleteMapping("/delete")
-	public ResponseEntity<ResponseDto> deleteEmployee(@RequestBody EmployeeDto employeeDto) {
-		String email = employeeDto.getEmail();
-		if (email == null || email.isEmpty()) {
+	public ResponseEntity<ResponseDto> deleteEmployee(@RequestBody EmployeeDto employeeDto){
+		boolean isDeleted = iEmployeeService.deleteEmployee(employeeDto.getEmail());
+		if(isDeleted){
 			return ResponseEntity
-					.status(HttpStatus.BAD_REQUEST)
-					.body(new ResponseDto(EmployeeConstants.STATUS_500, "Email is required for deletion"));
-		}
-
-		boolean isDeleted = iEmployeeService.deleteEmployee(email);
-
-		if (isDeleted) {
+					.status(HttpStatus.OK)
+					.body(new ResponseDto(EmployeeConstants.STATUS_200, EmployeeConstants.MESSAGE_200));
+		}else{
 			return ResponseEntity
-					.ok(new ResponseDto(EmployeeConstants.STATUS_200, EmployeeConstants.MESSAGE_200));
-		} else {
-			return ResponseEntity
-					.status(HttpStatus.NOT_FOUND)
-					.body(new ResponseDto(EmployeeConstants.STATUS_500, "Employee not found"));
+					.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(new ResponseDto(EmployeeConstants.STATUS_500, EmployeeConstants.MESSAGE_500));
 		}
 	}
 }

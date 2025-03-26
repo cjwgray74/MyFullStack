@@ -87,7 +87,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         return true;
     }
 
-   @Override
+    @Override
     public EmployeeDto fetchAllEmployees() {
         EmployeeEntity employeeEntity = (EmployeeEntity) employeeRepo.findAll(); //Indicating that the employee and email was not found.
 
@@ -96,8 +96,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
 
 
-   @Override
-   public List<EmployeeEntity> getAllEmployees() {
+    @Override
+    public List<EmployeeEntity> getAllEmployees() {
         return employeeRepo.findAll();
     }
 

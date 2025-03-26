@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface KafkaRepository extends MongoRepository<UserEntity, Integer> {
+public interface KafkaRepository extends MongoRepository<UserEntity, String> {
 
 
     UserEntity findByEmail(String email);

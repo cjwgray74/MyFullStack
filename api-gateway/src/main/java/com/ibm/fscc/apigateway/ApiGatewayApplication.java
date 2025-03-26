@@ -12,27 +12,28 @@ import java.time.LocalDateTime;
 @SpringBootApplication
 @RestController
 public class ApiGatewayApplication {
-//update
+
 	public static void main(String[] args) {
 		SpringApplication.run(ApiGatewayApplication.class, args);
 	}
 
 	@Bean
-	public RouteLocator ApiRouteConfig(RouteLocatorBuilder routeLocatorBuilder){
-
+	public RouteLocator apiRouteConfig(RouteLocatorBuilder routeLocatorBuilder) {
 		return routeLocatorBuilder.routes()
 				.route(p -> p
-						.path("/API/login/**")
-						.filters(f -> f.rewritePath("/API/login/(?<segment>.*)","/${segment}")
-								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
-						//.uri("lb://LOGIN-WS"))
-				      	.uri("http://localhost:8083"))
+						.path("/api/auth/**")
+						.filters(f -> f.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+						.uri("lb://LOGIN-WS"))
 				.route(p -> p
-						.path("/API/employee/**")
-						.filters(f -> f.rewritePath("/API/employee/(?<segment>.*)","/${segment}")
-								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
-						//.uri("lb://EMPLOYEE-WS"))
-						.uri("http://localhost:8082"))
+						.path("/api/employee/**")
+						.filters(f -> f.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+						.uri("lb://EMPLOYEE-WS"))
+				.route(p -> p
+						.path("/api/user/**")
+						.filters(f -> f.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+						.uri("lb://KAFKA-WS"))
 				.build();
+
+
 	}
 }

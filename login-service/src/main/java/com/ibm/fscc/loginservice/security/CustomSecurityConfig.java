@@ -1,7 +1,7 @@
 package com.ibm.fscc.loginservice.security;
 
 
-import com.ibm.fscc.loginservice.services.UserService;
+import com.ibm.fscc.loginservice.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

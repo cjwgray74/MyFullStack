@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2526e7db-ec99-4e35-ae5f-c45316381fa1" name="Changes" comment="Updated the login dockerfile." />
+    <list default="true" id="2526e7db-ec99-4e35-ae5f-c45316381fa1" name="Changes" comment="Updated the login dockerfile and image" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,21 +13,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "cjwgray74"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cjwgray74&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/cjwgray74/MyFullStack.git",
-    "accountId": "1d3e72d1-4978-48df-83e8-8396908ad8de"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cjwgray74/MyFullStack.git&quot;,
+    &quot;accountId&quot;: &quot;1d3e72d1-4978-48df-83e8-8396908ad8de&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2un6GB3YbrYQnIRHC9sbXxLBKPP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,7 +39,11 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Clarence Gray/Documents/MyWorkProject/full-stack-coding-challenge-master/discovery-service",
+    "last_opened_file_path": "C:/Users/Clarence Gray/Documents/MyWorkProject/full-stack-coding-challenge-master/login-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -58,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742871892236</updated>
       <workItem from="1742871893288" duration="113000" />
+      <workItem from="1742957721801" duration="344000" />
     </task>
     <task id="LOCAL-00001" summary="Updated the login dockerfile.">
       <option name="closed" value="true" />
@@ -67,7 +75,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742871978905</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated the login dockerfile and image">
+      <option name="closed" value="true" />
+      <created>1742957964981</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742957964981</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,6 +91,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated the login dockerfile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the login dockerfile." />
+    <MESSAGE value="Updated the login dockerfile and image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the login dockerfile and image" />
   </component>
 </project>

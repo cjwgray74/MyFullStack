@@ -2,7 +2,7 @@ package com.ibm.fscc.loginservice.Controller;
 
 import com.ibm.fscc.loginservice.security.JwtService;
 import com.ibm.fscc.loginservice.Dto.UserDto;
-import com.ibm.fscc.loginservice.services.UserService;
+import com.ibm.fscc.loginservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +12,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
-// Annotation to define this class as a REST controller for handling HTTP requests in a RESTful way.
-@RestController// Use to build restfull APIs and controlled when building webapps with servers.
+
 @RequiredArgsConstructor
-@RequestMapping(path="/start")// Used to map web requests to specific handler methods. Such as (Get, Post, Put, Delete) or CRUD.
-public class AuthenticationController {//Controller class
+@RestController
+@RequestMapping(path="/api/auth")
+public class AuthenticationController {
 
 	@Autowired
 	private UserService userService;
@@ -48,4 +48,5 @@ public class AuthenticationController {//Controller class
 			throw new UsernameNotFoundException("Invalid email or password");
 		}
 	}
+
 }

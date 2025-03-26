@@ -22,9 +22,6 @@ public class JwtService {
     @Autowired
     private Environment environment;
 
-    public String extractUserName(String token) {
-        return extractClaim(token, Claims::getSubject);
-    }
 
     public String generateToken(String email) {
         Map<String, Object> claims = new HashMap<>();
@@ -39,6 +36,10 @@ public class JwtService {
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
+    }
+
+    public String extractUserName(String token) {
+        return extractClaim(token, Claims::getSubject);
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {

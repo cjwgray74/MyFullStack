@@ -1,4 +1,4 @@
-package com.ibm.fscc.loginservice.services;
+package com.ibm.fscc.loginservice.service;
 
 import com.ibm.fscc.loginservice.data.UserEntity;
 import com.ibm.fscc.loginservice.repository.UserRepository;
